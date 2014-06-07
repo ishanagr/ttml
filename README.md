@@ -23,6 +23,7 @@ Search Events
 Events:
 id:
 activity: play chess
+privacy: public/private/friends
 start_time: 2014-06-07 2pm
 end_time: 2014-06-07 4pm
 address: outram park
