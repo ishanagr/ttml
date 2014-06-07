@@ -23,7 +23,7 @@ def event_list():
 	else:
 		result = db.session.query(Event).all()
 	result_list =  []
-	for i in result: 
+	for i in result:
 		result_list.append(i.to_json())
 	return json.dumps(result_list)
 

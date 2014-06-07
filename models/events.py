@@ -6,8 +6,7 @@ class Event(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     activity = db.Column(db.String, nullable=True)
-    start_time = db.Column(db.DateTime, nullable=True)
-    end_time = db.Column(db.DateTime, nullable=True)
+    time = db.Column(db.String, nullable=True)
     latitude = db.Column(db.Float(Precision=64), nullable=True)
     longitude = db.Column(db.Float(Precision=64), nullable=True)
     description = db.Column(db.String, nullable=True)
@@ -20,4 +19,4 @@ class Event(db.Model):
 
     def to_json(self):
         cat = db.session.query(Category).filter_by(id=self.category_id).all()[0]
-        return dict(id=self.id, activity=self.activity, start_time=self.start_time.isoformat(), end_time=self.end_time.isoformat(), latitude=self.latitude, longitude=self.longitude, description=self.description, category=cat.to_json(), address=self.address, privacy=self.privacy, n_people=self.n_people, host_name=self.host_name, tags=self.tags)
+        return dict(id=self.id, activity=self.activity, time=self.time, latitude=self.latitude, longitude=self.longitude, description=self.description, category=cat.to_json(), address=self.address, privacy=self.privacy, n_people=self.n_people, host_name=self.host_name, tags=self.tags)
