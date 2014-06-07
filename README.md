@@ -18,7 +18,7 @@ Attending [Post]
 
 
 Search Events
-/search_events?term=<term>
+/event/search?term=<term>
 
 Events:
 id:
