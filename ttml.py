@@ -4,7 +4,7 @@ from flask.ext.admin.contrib.sqla import ModelView
 app = Flask(__name__)
 
 import database
-
+from models import *
 @app.route('/')
 def hello_world():
     return 'Hello World!'
