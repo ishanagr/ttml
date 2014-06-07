@@ -1,5 +1,6 @@
 {
-	"all_events" : {
+	"all_events" : [
+	{
 		"event" : {
 			"id" : "1212",
 			"activity" : "play chess",
@@ -15,5 +16,5 @@
 			"n_people" : "1",
 			"host_id" : "213123"
 		}
-	}
+	}]
 }

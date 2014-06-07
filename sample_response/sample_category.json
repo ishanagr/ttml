@@ -1,8 +1,9 @@
 {
-	"categories" :{
+	"categories" :[
+	{
 		"category" :{
 			"title" : "games",
 			"image" : ""
 		}
-	} 
+	}]
 }
