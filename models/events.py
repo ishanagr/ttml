@@ -1,5 +1,5 @@
 from database import db
-from marshmallow import Serializer, fields
+from categories import *
 class Event(db.Model):
 
     __tablename__ = 'events'
@@ -18,11 +18,6 @@ class Event(db.Model):
     host_name = db.Column(db.Integer, nullable=True)
     tags = db.Column(db.String, nullable=True)
 
-class EventSerializer(Serializer):
-    formatted_name = fields.Method("format_name")
-
-    def format_name(self, event):
-        return "%s, %s" % (event.id, event.activity, event.start_time, event.end_time, event.latitude, event.longitude, event.description, event.category_id, event.address, event.privacy, event.n_people, event.host_name, event.tags)
-
-    class Meta:
-        fields = ('id', 'activity', 'start_time', "end_time", "latitude", "longitude", "description", "category_id", "address", "privacy", "n_people", "host_name", "tags")
+    def to_json(self):
+        cat = db.session.query(Category).filter_by(id=self.category_id).all()[0]
+        return dict(id=self.id, activity=self.activity, start_time=self.start_time.isoformat(), end_time=self.end_time.isoformat(), latitude=self.latitude, longitude=self.longitude, description=self.description, category=cat.to_json(), address=self.address, privacy=self.privacy, n_people=self.n_people, host_name=self.host_name, tags=self.tags)

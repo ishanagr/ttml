@@ -9,6 +9,7 @@ app = Flask(__name__)
 app.debug = True
 
 import database
+import json
 from models import *
 @app.route('/')
 def hello_world():
@@ -21,13 +22,18 @@ def event_list():
 		result = db.session.query(Event).filter_by(category_id=category_id).all()
 	else:
 		result = db.session.query(Event).all()
-	return jsonify(results=list(result))
-	#return 'Hello World!'
+	result_list =  []
+	for i in result: 
+		result_list.append(i.to_json())
+	return json.dumps(result_list)
 
 @app.route('/categories')
-def categories():
-	db.session.query(Category).all()
-	return 'Hello World!'
+def categories_show():
+	result = db.session.query(Category).all()
+	result_list =  []
+	for i in result:
+		result_list.append(i.to_json())
+	return json.dumps(result_list)
 
 @app.route('/event/attend', methods=['GET', 'POST'])
 def event_attend():
@@ -35,15 +41,18 @@ def event_attend():
 		event_id = request.form['event_id']
 		user_id = request.form['user_id']
 		if event_id and user_id:
-			attend = User(event_id=event_id, user_id=user_id)
-			db.session.create(attend)
+			attend = Attend(event_id=event_id, user_id=user_id)
+			db.session.add(attend)
 			db.session.commit()
-        return 'Hello World!'
+	return 'Fuck yeah'
 
 @app.route('/users/list')
-def categories_show():
+def users_show():
   result = db.session.query(User).all()
-  return 'Hello World!'
+  result_list =  []
+  for i in result:
+  	result_list.append(i.to_json())
+  return json.dumps(result_list)
 
 @app.route('/event/search')
 def event_search():
@@ -53,6 +62,7 @@ admin = Admin(app, name='Can lah!')
 admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Event, db.session))
 admin.add_view(ModelView(Category, db.session))
+admin.add_view(ModelView(Attend, db.session))
 
 if __name__ == '__main__':
     app.run()
