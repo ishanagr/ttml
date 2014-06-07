@@ -6,7 +6,7 @@ from flask.ext.admin.contrib.sqla import ModelView
 from marshmallow import Serializer, fields
 
 app = Flask(__name__)
-app.debug = True
+#app.debug = True
 
 import database
 import json
