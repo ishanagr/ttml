@@ -12,7 +12,7 @@ List of all Events
 List of all Categories
 /categories?
 
-Attending
+Attending [Post]
 /attend?event_id=<>&user_id=<>
 
 
