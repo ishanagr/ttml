@@ -4,16 +4,16 @@ TTML
 API Specification
 
 Create Event
-/create_event?
+/event/create?
 
 List of all Events
-/list_events?category=<category>
+/event/list?category=<category>
 
 List of all Categories
 /categories?
 
 Attending [Post]
-/attend?event_id=<>&user_id=<>
+/event/attend?event_id=<>&user_id=<>
 
 
 
