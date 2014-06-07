@@ -1,0 +1,17 @@
+{
+	"event" :{
+		"id" : "1212",
+		"activity" : "play chess",
+		"privacy" : "public",
+		"start_time" : "2014-06-07 2pm",
+		"end_time" : "2014-06-07 4pm",
+		"address" : "outram park",
+		"latitude" : "12312312312",
+		"longitude" : "12312312321", 
+		"category": "games",
+		"description": "hey guyes i like to play chess, who wants to come?!",
+		"hashtags" : "games, chess",
+		"n_people" : "1",
+		"host_id" : "213123"
+	}
+}
