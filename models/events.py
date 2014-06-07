@@ -16,7 +16,8 @@ class Event(db.Model):
     n_people = db.Column(db.Integer, nullable=True)
     host_name = db.Column(db.Integer, nullable=True)
     tags = db.Column(db.String, nullable=True)
+    cover = db.Column(db.String, nullable=True)
 
     def to_json(self):
         cat = db.session.query(Category).filter_by(id=self.category_id).all()[0]
-        return dict(id=self.id, activity=self.activity, time=self.time, latitude=self.latitude, longitude=self.longitude, description=self.description, category=cat.to_json(), address=self.address, privacy=self.privacy, n_people=self.n_people, host_name=self.host_name, tags=self.tags)
+        return dict(id=self.id, activity=self.activity, time=self.time, latitude=self.latitude, longitude=self.longitude, description=self.description, category=cat.to_json(), address=self.address, privacy=self.privacy, n_people=self.n_people, host_name=self.host_name, tags=self.tags, cover=self.cover)
