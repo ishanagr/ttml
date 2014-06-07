@@ -33,7 +33,7 @@ category: games
 description: hey guyes i like to play chess, who wants to come?!
 hashtags: games, chess,
 n_people: 1
-host_id:
+host_name:
 
 Event_Users
 event_id
